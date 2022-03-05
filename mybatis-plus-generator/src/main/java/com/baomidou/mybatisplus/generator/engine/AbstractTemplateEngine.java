@@ -166,6 +166,8 @@ public abstract class AbstractTemplateEngine {
                 String controller1 = "Controller";
                 String packageName = getPackageName(objectMap, controller1, entityName);
                 objectMap.put("packageName", packageName);
+                objectMap.put("entityLower", entityName.toLowerCase(Locale.ROOT));
+                objectMap.put("entityFirstLower", StringUtils.firstToLowerCase(entityName));
                 String controllerFile = String.format((replacePath + File.separator + tableInfo.getControllerName() + suffixJavaOrKt()), entityName);
                 outputFile(new File(controllerFile), objectMap, controller, getConfigBuilder().getStrategyConfig().controller().isFileOverride());
             });
