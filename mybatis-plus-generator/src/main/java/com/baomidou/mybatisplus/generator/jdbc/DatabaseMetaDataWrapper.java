@@ -39,8 +39,6 @@ public class DatabaseMetaDataWrapper {
 
     /**
      * 获取表字段信息
-     *
-     * @return 表字段信息 (小写字段名->字段信息)
      */
     public Map<String, ColumnsInfo> getColumnsInfo(String catalog, String schemaPattern, String tableNamePattern) throws SQLException {
         ResultSet resultSet = databaseMetaData.getColumns(catalog, schemaPattern, tableNamePattern, "%");

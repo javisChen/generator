@@ -142,6 +142,7 @@ public abstract class AbstractTemplateEngine {
                 String entityPackageName = getEntityPackageName(objectMap);
                 String mapperPackageName = getMapperPackageName(objectMap);
                 objectMap.put("packageName", packageName);
+                objectMap.put("servicePackageName", packageName);
                 objectMap.put("entityPackageName", entityPackageName);
                 objectMap.put("mapperPackageName", mapperPackageName);
                 String implFile = String.format((replacePath + File.separator + tableInfo.getServiceImplName() + suffixJavaOrKt()), entityName);
@@ -362,11 +363,11 @@ public abstract class AbstractTemplateEngine {
                     outputPageQueryReqDto(tableInfo, objectMap);
                     outputRespDto(tableInfo, objectMap);
                 }
+                // service
+                outputService(tableInfo, objectMap);
 
                 // controller
                 outputController(tableInfo, objectMap);
-                // service
-                outputService(tableInfo, objectMap);
 
             });
         } catch (Exception e) {

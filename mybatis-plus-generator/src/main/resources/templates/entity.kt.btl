@@ -1,6 +1,6 @@
 package ${package.Entity}
 
-<% for(pkg in table.importPackages){ %>
+<% for(pkg in table."importPackages){ %>
 import ${pkg}
 <% } %>
 <% if(swagger){ %>
